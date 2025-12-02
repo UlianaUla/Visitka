@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рустам Беляев | Дизайнер</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Верхняя навигационная панель -->
+    <header class="header">
+        <div class="header-container">
+            <nav class="nav">
+                <div class="name-left" data-i18n="name">Рустам Беляев</div>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link" data-i18n="contact">Связаться</a>
+                    <button class="nav-link language-switcher" id="language-switcher">Ru/Eng</button>
+                    <a href="#" class="nav-link" data-i18n="menu">Меню</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Первая секция - Рустам Беляев -->
+    <section class="main-section">
+        <div class="title-container">
+            <div class="designer-text" data-i18n="designer">Дизайнер</div>
+            <h1 class="main-title" data-i18n="name">Рустам Беляев</h1>
+            <div class="signature-under-title">
+                <div class="signature-line-1" data-i18n="signature1">Минимализм форм</div>
+                <div class="signature-line-2" data-i18n="signature2">и совершенство деталей</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Картинка-переход -->
+    <section class="transition-section">
+        <img src="https://wallpapers.com/images/hd/wrinkled-paper-background-0lr7oy968evxzqd4.jpg"
+             alt="Минималистичный дизайн"
+             class="transition-image">
+    </section>
+
+    <!-- Вторая секция (про меня) -->
+    <section id="about" class="about-section">
+        <h2 class="about-title" data-i18n="aboutTitle">Про меня</h2>
+        <p class="about-description" data-i18n="aboutText">
+            Объединив пятилетнюю практику дизайна и действующий опыт в бизнесе, создаю сайты, айдентику и стратегии для компаний и частных лиц, помогая сделать их бренды заметнее, понятнее и дороже.
+        </p>
+        <div class="about-buttons">
+            <button class="about-button" data-i18n="buttonMe">Больше про меня</button>
+            <button class="about-button" data-i18n="buttonServices">Больше про услуги</button>
+        </div>
+    </section>
+
+    <!-- Третья секция с проектами -->
+    <section id="projects" class="projects-section">
+        <h2 class="projects-title" data-i18n="projectsTitle">Проекты</h2>
+        <div class="projects-container">
+            <!-- Левая колонка с метками и проектами -->
+            <div class="projects-list-container">
+                <!-- Левая колонка с метками - одна за другой -->
+                <div class="project-labels">
+                    <div class="project-label" data-i18n="label1">Сайт<br>2025</div>
+                    <div class="project-label" data-i18n="label2">Дизайн/Сайт<br>2025</div>
+                    <div class="project-label" data-i18n="label3">Дизайн/Сайт<br>2025</div>
+                </div>
+
+                <!-- Правая колонка с квадратиками проектов -->
+                <div class="projects-list">
+                    <div class="project-item" data-project="clean-skin">
+                        <div class="project-preview">
+                            <img src="https://i.pinimg.com/736x/50/4f/12/504f12035ef886510d4f158702fe5704.jpg" alt="Чистая кожа">
+                        </div>
+                        <div class="project-name" data-i18n="project1">Чистая кожа</div>
+                    </div>
+
+                    <div class="project-item" data-project="off-3d">
+                        <div class="project-preview">
+                            <img src="https://www.casaricca.ru/upload/iblock/caf/caf8ee808d7832d78b60318c8749a2e2.jpg" alt="Off 3D">
+                        </div>
+                        <div class="project-name" data-i18n="project2">Off 3D</div>
+                    </div>
+
+                    <div class="project-item" data-project="37-tuto">
+                        <div class="project-preview">
+                            <img src="https://mockupdownload.ru/wp-content/uploads/2016/12/branding_Mock-Up_-2.jpg" alt="37 Tuto">
+                        </div>
+                        <div class="project-name" data-i18n="project3">37 Tuto</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка для отображения проекта -->
+            <div class="projects-display">
+                <!-- Сообщение по умолчанию -->
+                <div class="default-display">
+                    <p data-i18n="projectsDefault">Ознакомиться с проектами</p>
+                </div>
+
+                <!-- Детали первого проекта (Чистая кожа) -->
+                <div class="project-detail" id="project-clean-skin">
+                    <div class="project-main-image">
+                        <img src="https://ukinvestormagazine.co.uk/wp-content/uploads/2019/11/shutterstock_722897383.jpg" alt="Чистая кожа - детали">
+                    </div>
+                    <div class="project-description" data-i18n="project1Desc">
+                        Брендинг и дизайн упаковки для косметического бренда, специализирующегося на натуральной продукции по уходу за кожей.
+                    </div>
+                </div>
+
+                <!-- Детали ыторого проекта (Off 3D) -->
+                <div class="project-detail" id="project-off-3d">
+                    <div class="project-main-image">
+                        <img src="https://images.adsttc.com/media/images/63e3/a473/e8da/b030/60c2/9f5c/large_jpg/3d-printed-furniture-12-designs-that-explore-digital-craftsmanship_34.jpg?1675863193" alt="Off 3D - детали">
+                    </div>
+                    <div class="project-description" data-i18n="project2Desc">
+                        Айдентика и веб-дизайн для студии 3D-визуализации.
+                    </div>
+                </div>
+
+                <!-- Детали третьего проекта (37 Tuto) -->
+                <div class="project-detail" id="project-37-tuto">
+                    <div class="project-main-image">
+                        <img src="https://main-cdn.sbermegamarket.ru/hlr-system/-55/389/939/922/175/7/100039722430b0.png" alt="37 Tuto - детали">
+                    </div>
+                    <div class="project-description" data-i18n="project3Desc">
+                        Дизайн образовательной платформы для онлайн-курсов.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
