@@ -17,7 +17,7 @@ const texts = {
         project1: "Чистая кожа",
         project1Desc: "Брендинг и дизайн упаковки для косметического бренда, специализирующегося на натуральной продукции по уходу за кожей. Минималистичный дизайн с акцентом на чистоту и натуральность ингредиентов.",
         project2: "Off 3D",
-        project2Desc: "Айдентика и веб-дизайн для студии 3D-визуализации. Современный логотип, отражающий трехмерность, и адаптивный сайт с портфолио работ. Цветовая палитра подчеркивает инновационный подход компании.",
+        project2Desc: "Айдентика и веб-дизайн для студии 3D-визуализации. Современный логотип, отражающий трехмерность, и адаптивный сайт с портффилио работ. Цветовая палитра подчеркивает инновационный подход компании.",
         project3: "37 Tuto",
         project3Desc: "Дизайн образовательной платформы для онлайн-курсов. Простой и интуитивно понятный интерфейс, система прогресса обучения и адаптивная верстка для всех устройств. Акцент на удобстве пользователя.",
         label1: "Сайт<br>2025",
@@ -58,7 +58,6 @@ function switchLanguage(e) {
     currentLang = currentLang === 'ru' ? 'en' : 'ru';
     console.log('Новый язык:', currentLang);
 
-    
     const elements = document.querySelectorAll('[data-i18n]');
     console.log('Найдено элементов:', elements.length);
 
@@ -67,7 +66,6 @@ function switchLanguage(e) {
         const translation = texts[currentLang][key];
 
         if (translation) {
-            
             if (el.classList.contains('project-label')) {
                 el.innerHTML = translation;
             } else {
@@ -86,11 +84,10 @@ function switchLanguage(e) {
     console.log('Перевод успешно завершился');
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Загрузка DOM');
 
-    // 1. 
+    // 1. Настройка переключения языка
     const langButton = document.getElementById('language-switcher');
     console.log('Кнопка найдена', !!langButton);
 
@@ -181,4 +178,71 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-});
+    const transitionImage = document.querySelector('.transition-image');
+
+    if (transitionImage) {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(transitionImage);
+    }
+
+    // 6. Прокрутка для прозрачной панели 
+    const header = document.querySelector('.header');
+
+    if (header) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        }
+    }
+    const finalImage = document.querySelector('.final-image');
+    if (finalImage) {
+       
+        finalImage.addEventListener('load', function () {
+            setTimeout(() => {
+                this.classList.add('loaded');
+            }, 300);
+        });
+
+        
+        if (finalImage.complete) {
+            setTimeout(() => {
+                finalImage.classList.add('loaded');
+            }, 300);
+        }
+
+        // Анимация при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('loaded');
+                    }, 300);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(finalImage);
+    }
+ 
+
+}); 

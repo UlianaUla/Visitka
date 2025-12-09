@@ -1,32 +1,4 @@
 ﻿
-#language-switcher {
-    background: none;
-    border: none;
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    text-transform: uppercase;
-    letter-spacing: inherit;
-    cursor: pointer;
-    padding: 0;
-    text-decoration: none;
-    transition: opacity 0.3s;
-    white-space: nowrap;
-}
-
-    #language-switcher:hover {
-        opacity: 0.7;
-    }
-
-
-    .signature-under-title .signature-line-1 {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .signature-under-title .signature-line-2 {
-        display: block;
-    }
 * {
     margin: 0;
     padding: 0;
@@ -47,16 +19,28 @@ body {
     padding: 0 40px;
 }
 
-/* Верхняя наыигация */
+
+
 .header {
-    padding: 30px 0;
-    border-bottom: 1px solid #f0f0f0;
     position: fixed;
-    width: 100%;
-    background-color: white;
-    z-index: 100;
     top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 30px 0;
+    background-color: transparent;
+    border: none;
+    transition: all 0.3s ease;
 }
+
+    /* При прокрутке - делаем панель видимой */
+    .header.scrolled {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 20px 0;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    }
 
 .header-container {
     max-width: 1200px;
@@ -76,6 +60,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-family: 'Jura', sans-serif;
+    color: #000000;
 }
 
 .nav-links {
@@ -102,7 +87,29 @@ body {
         opacity: 0.7;
     }
 
-/* первая секция */
+#language-switcher {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    text-transform: uppercase;
+    letter-spacing: inherit;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    margin: 0 15px;
+    margin-left: 30px;
+}
+
+    #language-switcher:hover {
+        opacity: 0.7;
+    }
+
+
+
 .main-section {
     position: relative;
     height: 100vh;
@@ -110,8 +117,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 270px;
-    padding-left: 10px;
+    padding-top: 100px;
+    padding-left: 0;
 }
 
 .title-container {
@@ -122,6 +129,7 @@ body {
 }
 
 .designer-text {
+    font-family: 'Great Vibes',cursive;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -142,27 +150,38 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
-/* Подпись под заголовком Рустам Беляев */
+/* Подпись под заголовком */
 .signature-under-title {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.5;
-    letter-spacing: 1px;
-    text-align: left;
-    margin-top: 30px;
-    text-align: left;
-    margin-left: 300px;
-    margin-top: 200px;
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 28px !important;
+    color: #333 !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.5px !important;
+    text-align: left !important;
+    margin-top: 250px !important;
+    max-width: 800px !important;
+    margin-left: 300px !important;
+    margin-right: auto !important;
+    padding: 0 20px !important;
 }
 
-    .signature-under-title .signature-line-1 {
-        display: block;
-        margin-bottom: 5px;
-    }
+.signature-line-1,
+.signature-line-2 {
+    font-family: 'Great Vibes', cursive !important;
+    display: block !important;
+    font-weight: 400 !important;
+}
 
-    .signature-under-title .signature-line-2 {
-        display: block;
-    }
+.signature-line-1 {
+    margin-bottom: 5px !important;
+    font-size: 32px !important;
+}
+
+.signature-line-2 {
+    font-size: 26px !important;
+}
+
+
 
 /* Картинка-переход */
 .transition-section {
@@ -176,13 +195,27 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 10s ease;
+    
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 2.5s ease;
+    transition-delay: 0.3s;
 }
+
+    .transition-image.visible {
+        /* Когда элемент в поле зрения */
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 
 .transition-section:hover .transition-image {
     transform: scale(1.05);
 }
 
-/* вторая секция*/
+
+/* ВТОРАЯ СЕКЦИЯ */
+
+
 .about-section {
     min-height: 100vh;
     display: flex;
@@ -214,7 +247,7 @@ body {
     letter-spacing: 0.8px;
     padding: 0 4%;
     font-weight: 300;
-    font-family: 'Momo Trust Display', sans-serif;
+    font-family: 'Great Vibes',cursive;
 }
 
 .about-buttons {
@@ -258,7 +291,10 @@ body {
         width: calc(100% - 80px);
     }
 
-/* третья секция - проекты */
+
+/* ПРОЕКТЫ */
+
+
 .projects-section {
     min-height: 100vh;
     padding: 150px 0 100px;
@@ -299,15 +335,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 250px;
-    margin-top: 15px;
+    margin-top: 90px;
     width: 100px;
     margin-right: 70px;
     left: -20px;
 }
 
 .project-label {
-    font-size: 11px;
-    color: #666;
+    font-family: 'Great Vibes', cursive;
+    font-size: 20px;
+    color: #000000;
     text-align: right;
     line-height: 1.4;
     height: 40px;
@@ -316,7 +353,7 @@ body {
     justify-content: center;
 }
 
-/* Контейнер для квадратиков левых */
+/* Контейнер для квадратиков проектов */
 .projects-list {
     display: flex;
     flex-direction: column;
@@ -359,9 +396,25 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-left: 30px !important;
 }
 
-/* Правая колонка квадратика*/
+
+    /* Подвинуть конкретное название */
+    .project-item[data-project="off-3d"] .project-name {
+        margin-left: 60px !important; /* Сдвиг вправо */
+       
+    }
+
+    .project-item[data-project="37-tuto"] .project-name {
+        margin-left: 60px !important; /* Больше вправо */
+       
+    }
+
+   
+   
+
+/* Правая колонка для отображения проекта */
 .projects-display {
     flex: 1;
     position: relative;
@@ -377,7 +430,7 @@ body {
     z-index: 10;
 }
 
-/* Позиционирование каждого всплывающего окошка */
+/* Позиционирование каждого проекта */
 #project-clean-skin {
     top: 0px;
     left: 0;
@@ -413,9 +466,10 @@ body {
     }
 
 .project-description {
+    font-family: Oswald, cursive !important;
     font-size: 16px;
     line-height: 1.6;
-    color: #666;
+    color: #333;
     padding: 20px 0;
     max-width: 600px;
     font-family: 'Momo Trust Display', sans-serif;
@@ -442,10 +496,10 @@ body {
         line-height: 1.6;
     }
 
+/* Адаптивная часть  */
 
 
 @media (max-width: 768px) {
-    
     .nav {
         flex-direction: column;
         gap: 15px;
@@ -463,7 +517,12 @@ body {
         font-size: 12px;
     }
 
-    /* 2. главный заголовок */
+    #language-switcher {
+        margin: 0 10px;
+        font-size: 12px;
+    }
+
+    /* Главный заголовок */
     .main-section {
         padding-top: 150px;
         padding-left: 0;
@@ -481,7 +540,7 @@ body {
         font-size: 12px;
     }
 
-    /* 3. подпись под заголовком */
+    /* Подпись под заголовком */
     .signature-under-title {
         margin-left: 0 !important;
         margin-right: 0 !important;
@@ -491,7 +550,7 @@ body {
         width: 100% !important;
     }
 
-    /* 4. вторая секция */
+    /* Вторая секция */
     .about-section {
         padding: 50px 20px;
     }
@@ -519,7 +578,7 @@ body {
         text-align: center;
     }
 
-    /* 5. секция проектов - третья */
+    /* Секция проектов */
     .projects-section {
         padding: 50px 20px;
     }
@@ -604,7 +663,7 @@ body {
     }
 }
 
-/* Размещение сайта для маленькмх экранов*/
+/* Маленькие экраня */
 @media (max-width: 480px) {
     .main-title {
         font-size: 28px;
@@ -615,6 +674,11 @@ body {
     }
 
     .nav-link {
+        font-size: 11px;
+        margin: 0 8px;
+    }
+
+    #language-switcher {
         font-size: 11px;
         margin: 0 8px;
     }
@@ -635,4 +699,40 @@ body {
     .projects-list {
         justify-content: center;
     }
+    
+
+  
+    /* АДдаптичная часть */
+    
+
+    @media (max-width: 1200px) {
+        .fullscreen-title {
+            font-size: 72px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .fullscreen-title {
+            font-size: 60px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .fullscreen-section {
+            height: 90vh;
+        }
+
+        .fullscreen-title {
+            font-size: 48px;
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .fullscreen-title {
+            font-size: 36px;
+            line-height: 1.2;
+        }
+    }
+
 }
